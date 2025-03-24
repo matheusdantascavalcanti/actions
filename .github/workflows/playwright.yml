@@ -2,7 +2,8 @@ name: Run Playwright Automation
 
 on:
   schedule:
-    - cron: '0 11,15,16,20 * * 1-5'
+    # Queue ~30 minutes early to work around GitHub’s ±30‑minute cron delay
+    - cron: '30 10,14,15,19 * * 1-5'
   workflow_dispatch:
 
 jobs:
@@ -16,6 +17,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Sleep until next top‑of‑hour (UTC)
+        run: |
+          NOW=$(date +%s)
+          TARGET=$(date -d "$(date -u +'%Y-%m-%d %H:00 UTC') +1 hour" +%s)
+          DELAY=$((TARGET - NOW))
+          if [ $DELAY -gt 0 ]; then
+            echo "Sleeping $DELAY seconds until $(date -d @$TARGET -u)"
+            sleep $DELAY
+          fi
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
