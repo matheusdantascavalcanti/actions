@@ -9,6 +9,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      EMPLOYER_CODE: ${{ secrets.EMPLOYER_CODE }}
+      PIN:           ${{ secrets.PIN }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -20,7 +24,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install
+          npm ci
           npx playwright install chromium
 
       - name: Run Playwright test
