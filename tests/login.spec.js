@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { test, expect } = require('@playwright/test');
 
-/* test('automate login', async ({ page }) => {
+test('automate login', async ({ page }) => {
     await page.goto('https://app.tangerino.com.br/Tangerino/?wicket:interface=:6:body:loginForm:baterPontoFuncionario::ILinkListener::');
 
     await page.getByRole('link', { name: 'Registrar Ponto' }).click();
@@ -17,4 +17,3 @@ const { test, expect } = require('@playwright/test');
     await expect(page.locator('#toast-container')).toBeVisible({ timeout: 5000 });
     await expect(page.getByText('Matheus Dantas Cavalcanti')).toBeVisible();
 });
-*/
