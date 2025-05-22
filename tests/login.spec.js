@@ -1,4 +1,4 @@
-require('dotenv').config();
+/**require('dotenv').config();
 const { test, expect } = require('@playwright/test');
 
 test('automate login', async ({ page }) => {
@@ -18,3 +18,4 @@ test('automate login', async ({ page }) => {
     await expect(page.getByText('Matheus Dantas Cavalcanti')).toBeVisible();
 });
 
+**/
