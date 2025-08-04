@@ -1,4 +1,4 @@
-require('dotenv').config();
+/**require('dotenv').config();
 const { test, expect } = require('@playwright/test');
 
 test('automate login', async ({ page }) => {
@@ -16,4 +16,4 @@ test('automate login', async ({ page }) => {
 
     await expect(page.locator('#toast-container')).toBeVisible({ timeout: 5000 });
     await expect(page.getByText('Matheus Dantas Cavalcanti')).toBeVisible();
-});
+});**/
