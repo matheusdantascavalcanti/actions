@@ -1,4 +1,4 @@
-require('dotenv').config();
+/*require('dotenv').config();
 const { test, expect } = require('@playwright/test');
 
 test('automate login', async ({ page }) => {
@@ -9,7 +9,7 @@ test('automate login', async ({ page }) => {
     await page.getByRole('textbox', { name: 'Código do Empregador *' })
         .fill(process.env.EMPLOYER_CODE);
 
-    await page.getByRole('textbox', { name: 'PIN *' })
+    await page.getByRole('textbox', { name: 'PIN *' })*/
         .fill(process.env.PIN);
 
     await page.getByRole('button', { name: 'Registrar' }).click();
